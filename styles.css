@@ -61,6 +61,12 @@ body {
   opacity: 0.62;
 }
 
+#episode-count {
+  display: inline-block;
+  min-width: 5ch;
+  text-align: right;
+}
+
 .parade {
   position: fixed;
   bottom: 1.5rem;

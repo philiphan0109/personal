@@ -17,8 +17,6 @@
       <a href="https://scholar.google.com/citations?user=NueVA2pJfLUC">google scholar</a>
     </main>
 
-    <p class="episode-counter">episode <span id="episode-count">00000</span></p>
-
     <div class="parade" aria-hidden="true">
       <div class="robot propeller-robot">
         <img src="assets/robots/propeller.svg?v=3" alt="">
@@ -27,9 +25,16 @@
       <img class="robot walker" src="assets/robots/walker.svg" alt="">
     </div>
 
-    <script defer src="counter.js?v=4"></script>
-    <noscript>
-      <img class="statcounter" src="https://c.statcounter.com/13354429/0/69f4aadb/1/" alt="">
-    </noscript>
+    <p class="episode-counter">
+      episode
+      <span id="episode-count">
+        <script src="counter.js?v=5"></script>
+        <script src="https://www.statcounter.com/counter/counter.js"></script>
+        <noscript>
+          <img class="statcounter" src="https://c.statcounter.com/13354429/0/69f4aadb/0/" alt="">
+        </noscript>
+      </span>
+    </p>
+
   </body>
 </html>

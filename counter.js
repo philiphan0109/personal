@@ -18,8 +18,3 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(episodeCount, { childList: true, subtree: true });
-
-const script = document.createElement("script");
-script.src = "https://www.statcounter.com/counter/counter.js";
-script.async = true;
-episodeCount.append(script);
