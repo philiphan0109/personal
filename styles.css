@@ -37,6 +37,10 @@ body {
   line-height: 1.5;
 }
 
+.intro p + p {
+  margin-top: 0.25rem;
+}
+
 .intro a {
   display: inline-block;
   margin-top: 0.75rem;
