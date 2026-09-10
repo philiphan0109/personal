@@ -79,10 +79,31 @@ body {
 }
 
 .propeller-robot {
+  position: relative;
   width: 65px;
   aspect-ratio: 70 / 84;
   margin-bottom: 18px;
   animation: hover 1.2s ease-in-out infinite;
+}
+
+.propeller-robot::before {
+  position: absolute;
+  top: 20.25%;
+  left: 17.15%;
+  width: 65.7%;
+  height: 4px;
+  border-radius: 2px;
+  background: #46345f;
+  content: "";
+  transform-origin: center;
+  animation: propeller-spin 0.28s ease-in-out infinite alternate;
+}
+
+.propeller-robot img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes parade-across {
@@ -125,6 +146,18 @@ body {
 
   50% {
     transform: translateY(-5px);
+  }
+}
+
+@keyframes propeller-spin {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scaleX(0.16);
+    opacity: 0.62;
   }
 }
 
