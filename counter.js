@@ -1,16 +1,10 @@
 const episodeCount = document.querySelector("#episode-count");
 
-window.setTimeout(async () => {
-  try {
-    const response = await fetch(
-      "https://philiphan.goatcounter.com/counter//.json",
-      { cache: "no-store" },
-    );
-    const { count } = await response.json();
-    const digits = count.replace(/\D/g, "");
-
-    if (Number(digits) > 0) {
-      episodeCount.textContent = digits.padStart(5, "0");
-    }
-  } catch {}
-}, 1000);
+fetch("https://counterapi.com/api/yangphiliphan.com/view/home", {
+  cache: "no-store",
+})
+  .then((response) => response.json())
+  .then(({ value }) => {
+    episodeCount.textContent = String(value).padStart(5, "0");
+  })
+  .catch(() => {});
