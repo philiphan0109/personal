@@ -17,9 +17,9 @@
       animation: sway-forward 0.8s ease-in-out infinite;
     }
 
-    .top-propeller {
+    .propeller-blade {
       transform-origin: center;
-      animation: propeller-turn 0.42s linear infinite;
+      animation: propeller-spin 0.28s ease-in-out infinite alternate;
     }
 
     @keyframes sway-forward {
@@ -32,16 +32,23 @@
       50% { transform: rotate(8deg); }
     }
 
-    @keyframes propeller-turn {
-      to { transform: rotate(360deg); }
+    @keyframes propeller-spin {
+      from {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+
+      to {
+        transform: scaleX(0.16);
+        opacity: 0.62;
+      }
     }
   </style>
 
   <line x1="35" y1="19" x2="35" y2="8" stroke="#71549a" stroke-width="2.5" stroke-linecap="round"></line>
-  <g class="top-propeller">
-    <rect x="17" y="5" width="36" height="4" rx="2" fill="#46345f"></rect>
-    <circle cx="35" cy="7" r="3" fill="#71549a"></circle>
-  </g>
+  <ellipse cx="35" cy="7" rx="23" ry="3.5" fill="#71549a" opacity="0.12"></ellipse>
+  <rect class="propeller-blade" x="12" y="5" width="46" height="4" rx="2" fill="#46345f"></rect>
+  <circle cx="35" cy="7" r="3" fill="#71549a"></circle>
 
   <g class="arm arm-left">
     <rect x="16" y="41" width="4.5" height="18" rx="2.25" fill="#46345f"></rect>
