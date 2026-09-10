@@ -1,7 +1,7 @@
 <svg viewBox="0 -12 70 84" xmlns="http://www.w3.org/2000/svg">
   <style>
     .arm,
-    .top-propeller {
+    .propeller-blade {
       transform-box: fill-box;
     }
 
