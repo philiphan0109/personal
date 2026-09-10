@@ -9,6 +9,8 @@ window.setTimeout(async () => {
     const { count } = await response.json();
     const digits = count.replace(/\D/g, "");
 
-    if (digits) episodeCount.textContent = digits.padStart(5, "0");
+    if (Number(digits) > 0) {
+      episodeCount.textContent = digits.padStart(5, "0");
+    }
   } catch {}
 }, 1000);
