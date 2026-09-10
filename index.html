@@ -3,9 +3,325 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Personal Site</title>
+    <title>Philip Han</title>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --robot: #71549a;
+        --robot-dark: #46345f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      .parade {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 0;
+        display: flex;
+        align-items: flex-end;
+        gap: 14px;
+        pointer-events: none;
+        animation: parade-across 15s linear infinite;
+        will-change: transform;
+      }
+
+      .robot {
+        flex: 0 0 auto;
+      }
+
+      .robot svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .arm,
+      .leg,
+      .wheel,
+      .propeller {
+        transform-box: fill-box;
+      }
+
+      .arm,
+      .leg {
+        transform-origin: center top;
+      }
+
+      .walker {
+        width: 52px;
+      }
+
+      .walker svg {
+        animation: walker-bob 0.5s ease-in-out infinite;
+      }
+
+      .walker .leg-left,
+      .walker .arm-right {
+        animation: swing-forward 0.5s ease-in-out infinite;
+      }
+
+      .walker .leg-right,
+      .walker .arm-left {
+        animation: swing-back 0.5s ease-in-out infinite;
+      }
+
+      .tread-robot {
+        width: 52px;
+      }
+
+      .tread-robot svg {
+        animation: tread-bob 0.7s ease-in-out infinite;
+      }
+
+      .tread-robot .arm-left,
+      .propeller-robot .leg-right {
+        animation: sway-back 0.8s ease-in-out infinite;
+      }
+
+      .tread-robot .arm-right,
+      .propeller-robot .leg-left {
+        animation: sway-forward 0.8s ease-in-out infinite;
+      }
+
+      .wheel,
+      .propeller {
+        transform-origin: center;
+      }
+
+      .wheel {
+        animation: wheel-turn 0.8s linear infinite;
+      }
+
+      .propeller-robot {
+        width: 74px;
+        margin-bottom: 18px;
+      }
+
+      .propeller-robot svg {
+        animation: hover 1.2s ease-in-out infinite;
+      }
+
+      .propeller-left {
+        animation: propeller-turn 0.42s linear infinite;
+      }
+
+      .propeller-right {
+        animation: propeller-turn 0.42s linear infinite reverse;
+      }
+
+      @keyframes parade-across {
+        from {
+          transform: translateX(-240px);
+        }
+
+        to {
+          transform: translateX(calc(100vw + 24px));
+        }
+      }
+
+      @keyframes walker-bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-2px);
+        }
+      }
+
+      @keyframes tread-bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-1px);
+        }
+      }
+
+      @keyframes hover {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @keyframes swing-forward {
+        0%,
+        100% {
+          transform: rotate(22deg);
+        }
+
+        50% {
+          transform: rotate(-22deg);
+        }
+      }
+
+      @keyframes swing-back {
+        0%,
+        100% {
+          transform: rotate(-22deg);
+        }
+
+        50% {
+          transform: rotate(22deg);
+        }
+      }
+
+      @keyframes sway-forward {
+        0%,
+        100% {
+          transform: rotate(8deg);
+        }
+
+        50% {
+          transform: rotate(-8deg);
+        }
+      }
+
+      @keyframes sway-back {
+        0%,
+        100% {
+          transform: rotate(-8deg);
+        }
+
+        50% {
+          transform: rotate(8deg);
+        }
+      }
+
+      @keyframes wheel-turn {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes propeller-turn {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .parade {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>poop</h1>
+    <div class="parade" aria-hidden="true">
+      <div class="robot propeller-robot">
+        <svg viewBox="0 0 80 82" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="40" width="15" height="5" rx="2.5" fill="var(--robot-dark)"></rect>
+          <rect x="50" y="40" width="15" height="5" rx="2.5" fill="var(--robot-dark)"></rect>
+
+          <g class="propeller propeller-left">
+            <rect x="4" y="40" width="18" height="5" rx="2.5" fill="var(--robot-dark)"></rect>
+            <rect x="10.5" y="33.5" width="5" height="18" rx="2.5" fill="var(--robot-dark)"></rect>
+            <circle cx="13" cy="42.5" r="3" fill="var(--robot)"></circle>
+          </g>
+          <g class="propeller propeller-right">
+            <rect x="58" y="40" width="18" height="5" rx="2.5" fill="var(--robot-dark)"></rect>
+            <rect x="64.5" y="33.5" width="5" height="18" rx="2.5" fill="var(--robot-dark)"></rect>
+            <circle cx="67" cy="42.5" r="3" fill="var(--robot)"></circle>
+          </g>
+
+          <g class="leg leg-left">
+            <rect x="31" y="54" width="6" height="19" rx="3" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="leg leg-right">
+            <rect x="43" y="54" width="6" height="19" rx="3" fill="var(--robot-dark)"></rect>
+          </g>
+
+          <line x1="40" y1="10" x2="40" y2="4" stroke="var(--robot)" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="40" cy="3" r="2.5" fill="var(--robot)"></circle>
+          <rect x="27" y="9" width="26" height="19" rx="5" fill="var(--robot)"></rect>
+          <circle cx="34" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <circle cx="46" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <rect x="25" y="29" width="30" height="27" rx="5" fill="var(--robot)"></rect>
+          <rect x="32" y="36" width="16" height="6" rx="3" fill="var(--robot-dark)" opacity="0.55"></rect>
+        </svg>
+      </div>
+
+      <div class="robot tread-robot">
+        <svg viewBox="0 0 56 82" xmlns="http://www.w3.org/2000/svg">
+          <g class="arm arm-left">
+            <rect x="9" y="32" width="4.5" height="18" rx="2.25" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="arm arm-right">
+            <rect x="42.5" y="32" width="4.5" height="18" rx="2.25" fill="var(--robot-dark)"></rect>
+          </g>
+
+          <line x1="28" y1="10" x2="28" y2="4" stroke="var(--robot)" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="28" cy="3" r="2.5" fill="var(--robot)"></circle>
+          <rect x="15" y="9" width="26" height="19" rx="5" fill="var(--robot)"></rect>
+          <circle cx="22" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <circle cx="34" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <rect x="13" y="29" width="30" height="27" rx="5" fill="var(--robot)"></rect>
+          <rect x="20" y="36" width="16" height="6" rx="3" fill="var(--robot-dark)" opacity="0.55"></rect>
+
+          <rect x="7" y="57" width="42" height="18" rx="9" fill="var(--robot-dark)"></rect>
+          <rect x="10" y="60" width="36" height="12" rx="6" fill="var(--robot)"></rect>
+          <g class="wheel">
+            <circle cx="16" cy="66" r="4" fill="var(--paper)"></circle>
+            <rect x="15" y="62" width="2" height="8" rx="1" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="wheel">
+            <circle cx="28" cy="66" r="4" fill="var(--paper)"></circle>
+            <rect x="27" y="62" width="2" height="8" rx="1" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="wheel">
+            <circle cx="40" cy="66" r="4" fill="var(--paper)"></circle>
+            <rect x="39" y="62" width="2" height="8" rx="1" fill="var(--robot-dark)"></rect>
+          </g>
+        </svg>
+      </div>
+
+      <div class="robot walker">
+        <svg viewBox="0 0 56 82" xmlns="http://www.w3.org/2000/svg">
+          <g class="arm arm-left">
+            <rect x="9" y="32" width="4.5" height="18" rx="2.25" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="arm arm-right">
+            <rect x="42.5" y="32" width="4.5" height="18" rx="2.25" fill="var(--robot-dark)"></rect>
+          </g>
+
+          <g class="leg leg-left">
+            <rect x="19" y="54" width="6" height="20" rx="3" fill="var(--robot-dark)"></rect>
+          </g>
+          <g class="leg leg-right">
+            <rect x="31" y="54" width="6" height="20" rx="3" fill="var(--robot-dark)"></rect>
+          </g>
+
+          <line x1="28" y1="10" x2="28" y2="4" stroke="var(--robot)" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="28" cy="3" r="2.5" fill="var(--robot)"></circle>
+          <rect x="15" y="9" width="26" height="19" rx="5" fill="var(--robot)"></rect>
+          <circle cx="22" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <circle cx="34" cy="18.5" r="2.6" fill="var(--paper)"></circle>
+          <rect x="13" y="29" width="30" height="27" rx="5" fill="var(--robot)"></rect>
+          <rect x="20" y="36" width="16" height="6" rx="3" fill="var(--robot-dark)" opacity="0.55"></rect>
+        </svg>
+      </div>
+    </div>
   </body>
 </html>
