@@ -1,5 +1,5 @@
 :root {
-  --paper: #f4f1ea;
+  --paper: #f6f2ec;
 }
 
 * {
@@ -13,7 +13,7 @@ body {
 
 body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--paper);
   color: #2c2731;
   font-family: Arial, Helvetica, sans-serif;
@@ -46,6 +46,27 @@ body {
   margin-top: 0.75rem;
   color: #71549a;
   text-underline-offset: 0.2em;
+}
+
+.simulation {
+  position: relative;
+  z-index: 1;
+  width: min(
+    calc(100% - 48px),
+    540px,
+    calc((100vh - 360px) * 1.578947)
+  );
+  margin: 2.5rem auto 5rem;
+}
+
+.simulation video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 60 / 38;
+  border-radius: 4px;
+  background: var(--paper);
+  object-fit: cover;
 }
 
 .episode-counter {
@@ -187,6 +208,16 @@ body {
 }
 
 @media (max-width: 480px) {
+  .intro {
+    width: calc(100% - 40px);
+    margin-top: 15vh;
+  }
+
+  .simulation {
+    width: calc(100% - 40px);
+    margin-top: 2.5rem;
+  }
+
   .episode-counter {
     top: 18px;
     right: 20px;

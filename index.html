@@ -7,7 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=10">
+    <script src="simulation.js?v=17" defer></script>
   </head>
   <body>
     <main class="intro">
@@ -16,6 +17,18 @@
       <p>i work on imitation learning and reinforcement learning for robotics.</p>
       <a href="https://scholar.google.com/citations?user=NueVA2pJfLUC">google scholar</a>
     </main>
+
+    <section class="simulation" aria-label="Bimanual block-stacking simulation">
+      <video
+        id="block-stack-demo"
+        aria-label="Two opposing robot arms move a block tower from side to side"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        poster="assets/simulation/block-stack-poster.png?v=19"
+      ></video>
+    </section>
 
     <div class="parade" aria-hidden="true">
       <div class="robot propeller-robot">
